@@ -70,8 +70,8 @@ String calculateStatus(float temperature, int heatLoad) {
 | Status  | Kondisi                                          | Relay/Kipas | LED    | Buzzer                  |
 |---------|--------------------------------------------------|-------------|--------|-------------------------|
 | NORMAL  | suhu < ambang **dan** beban < 2500               | OFF         | Hijau  | OFF                     |
-| WARNING | suhu ≥ ambang (default 30) tapi belum DANGER     | ON          | Kuning | OFF                     |
-| DANGER  | suhu ≥ 40 **atau** beban panas ≥ 2500            | ON          | Merah  | ON (jika `buzzerEnabled`) |
+| WARNING | suhu ≥ ambang (default 20) tapi belum DANGER     | ON          | Kuning | OFF                     |
+| DANGER  | suhu ≥ ambang **atau** beban panas ≥ 2500        | ON          | Merah  | ON (jika `buzzerEnabled`) |
 
 Eksekusi aktuator ada di `setOutputs()`; relay aktif saat WARNING atau DANGER
 (`coolingActive = isDanger || isWarning`).
