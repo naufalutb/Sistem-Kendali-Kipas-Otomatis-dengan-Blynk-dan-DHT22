@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "author": "Muhammad Naufal Hanif",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -270,
+      "left": -45,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -170,
+      "left": 330,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_heat",
+      "top": 40,
+      "left": 345,
+      "attrs": {
+        "value": "0"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay_cooling",
+      "top": 335,
+      "left": 30,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer_alarm",
+      "top": 335,
+      "left": 300,
+      "attrs": {
+        "volume": "0.1"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_normal",
+      "top": 535,
+      "left": -45,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_normal",
+      "top": 515,
+      "left": 35,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_warning",
+      "top": 535,
+      "left": 145,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_warning",
+      "top": 515,
+      "left": 225,
+      "attrs": {
+        "color": "yellow"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_danger",
+      "top": 535,
+      "left": 335,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_danger",
+      "top": 515,
+      "left": 415,
+      "attrs": {
+        "color": "red"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "lcd:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "h-35.8",
+        "v391.6"
+      ]
+    ],
+    [
+      "lcd:VCC",
+      "esp:5V",
+      "red",
+      [
+        "h-26.2",
+        "v430.1",
+        "h71.81"
+      ]
+    ],
+    [
+      "lcd:SDA",
+      "esp:21",
+      "blue",
+      [
+        "h-16.6",
+        "v115",
+        "h206.6",
+        "v180.8"
+      ]
+    ],
+    [
+      "lcd:SCL",
+      "esp:22",
+      "orange",
+      [
+        "h-7",
+        "v135",
+        "h217",
+        "v122.5"
+      ]
+    ],
+    [
+      "dht:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v7.1",
+        "h-420",
+        "v76.8"
+      ]
+    ],
+    [
+      "dht:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v45",
+        "h-205",
+        "v45"
+      ]
+    ],
+    [
+      "dht:SDA",
+      "esp:15",
+      "green",
+      [
+        "v60",
+        "h-220",
+        "v120"
+      ]
+    ],
+    [
+      "pot_heat:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v16.3",
+        "h38",
+        "v-153.6",
+        "h-473",
+        "v57.6"
+      ]
+    ],
+    [
+      "pot_heat:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v45",
+        "h-220",
+        "v-105"
+      ]
+    ],
+    [
+      "pot_heat:SIG",
+      "esp:34",
+      "yellow",
+      [
+        "v112.3",
+        "h-403.2",
+        "v-153.6"
+      ]
+    ],
+    [
+      "relay_cooling:VCC",
+      "esp:5V",
+      "red",
+      [
+        "v1.2",
+        "h-49.2",
+        "v-153.6"
+      ]
+    ],
+    [
+      "relay_cooling:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "h-39.6",
+        "v-133.6",
+        "v-76.8"
+      ]
+    ],
+    [
+      "relay_cooling:IN",
+      "esp:13",
+      "purple",
+      [
+        "v1",
+        "h-58.8",
+        "v-211.2"
+      ]
+    ],
+    [
+      "buzzer_alarm:1",
+      "esp:GND.1",
+      "black",
+      [
+        "h-39",
+        "v-198.2",
+        "h-56",
+        "h-270.4",
+        "v-67.2"
+      ]
+    ],
+    [
+      "buzzer_alarm:2",
+      "esp:32",
+      "green",
+      [
+        "v35",
+        "h-105",
+        "v-463.6",
+        "h-241.6",
+        "v96"
+      ]
+    ],
+    [
+      "esp:25",
+      "r_normal:1",
+      "green",
+      [
+        "h-105",
+        "v490",
+        "h25"
+      ]
+    ],
+    [
+      "r_normal:2",
+      "led_normal:A",
+      "green",
+      [
+        "v25.75",
+        "h46.2"
+      ]
+    ],
+    [
+      "led_normal:C",
+      "esp:GND.3",
+      "black",
+      [
+        "v35",
+        "h218.8",
+        "v-505.6"
+      ]
+    ],
+    [
+      "esp:26",
+      "r_warning:1",
+      "yellow",
+      [
+        "h-85",
+        "v490",
+        "h205"
+      ]
+    ],
+    [
+      "r_warning:2",
+      "led_warning:A",
+      "yellow",
+      [
+        "v25.75",
+        "h46.2"
+      ]
+    ],
+    [
+      "led_warning:C",
+      "esp:GND.3",
+      "black",
+      [
+        "v28.6",
+        "h38.4",
+        "v-499.2"
+      ]
+    ],
+    [
+      "esp:27",
+      "r_danger:1",
+      "red",
+      [
+        "h-65",
+        "v460",
+        "h405"
+      ]
+    ],
+    [
+      "r_danger:2",
+      "led_danger:A",
+      "red",
+      [
+        "v25.75",
+        "h46.2"
+      ]
+    ],
+    [
+      "led_danger:C",
+      "esp:GND.3",
+      "black",
+      [
+        "v35",
+        "h-170.8",
+        "v-505.6"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
